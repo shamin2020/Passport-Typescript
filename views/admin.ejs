@@ -1,0 +1,16 @@
+<h1 class="mt-4">Admin Dashboard</h1>
+<h2>Wlcome <%= user.name %></h2>
+<p class="lead mb-3">Current Active Sessions:</p>
+
+<ul>
+  <% sessions.forEach(sessionId => { %>
+  <li>
+    <span>Session ID: <%= sessionId %></span><br />
+    <span>User ID: <%= user.id %></span><br />
+    <form action="/admin" method="POST" style="display: inline">
+      <input type="hidden" name="sessionId" value="<%= sessionId %>" />
+      <button type="submit" class="btn btn-secondary">Revoke Session</button>
+    </form>
+  </li>
+  <% }); %>
+</ul>
